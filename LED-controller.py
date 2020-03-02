@@ -15,13 +15,15 @@ vermelho = False
 
 # cria a porta de conexão usb
 # aux para pegar a porta digitada transformada em string
-# variavel recebe a porta
+# variavel recebe a porta que a gente passa, com 9600 velocidade padrao
 
 def create_porta():
     global portaUSB
     aux = temp.get()
     portaUSB = serial.Serial(aux, 9600)
     
+# funcao recebe o codigo, converte de novo para string
+# escreve o codigo para dentro do arduino
 
 def sen_command(cod):
     aux = str(cod)
