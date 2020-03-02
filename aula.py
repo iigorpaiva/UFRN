@@ -1,13 +1,21 @@
+# import para podermos gerar uma interface grafica
+# import para estabelecermos uma comunicação serial com o arduino
+
 from PIL import Image, ImageTk
 from tkinter import *
 import serial
 
+# variaveis globais
 global azul
 azul = False
 global verde
 verde = False
 global vermelho
 vermelho = False
+
+# cria a porta de conexão usb
+# aux para pegar a porta digitada transformada em string
+# variavel recebe a porta
 
 def create_porta():
     global portaUSB
@@ -72,14 +80,23 @@ def comando(op):
         botao3.config(image=icone, highlightthickness = 0, bd=0)
         botao3.image = icone
         vermelho = False
-    
+
+####################################### INTERFACE GRAFICA ##############################################################
+
+# da biblioteca Tk
 
 janela = Tk()
 
 janela.title('Controle de LED')
 
-janela.geometry('650x500')
+# define o tamanho da janela 
+
+janela.geometry('650x300')
 janela.configure(bg='white')
+
+# pede ao usuario para inserir a porta conectada com o arduino. Ex: com6 
+# pode ser escrita em letras maiuscula ou minuscula
+# o temp sera usado no codigo acima e sera passado como uma string
 
 text_Port = Label(text='Digite a porta:').place(x=50,y=200)
 temp = StringVar ()
@@ -87,6 +104,7 @@ porta = Entry(janela, textvariable = temp).place(x=150,y=200)
 botao_port  = Button(text='OK', command = create_porta).place(x=290,y=195)
 
 
+# botoes que serão pressionados para ligar os LEDS (azul, verde, vermelho)
 
 texto1 = Label(text='Botão que liga led azul', fg = 'blue',bg='white')
 texto1.place(x=50,y=70)
