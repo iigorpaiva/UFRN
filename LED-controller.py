@@ -101,7 +101,7 @@ janela.configure(bg='white')
 text_Port = Label(text='Digite a porta:').place(x=50,y=200)
 temp = StringVar ()
 porta = Entry(janela, textvariable = temp).place(x=150,y=200)
-botao_port  = Button(text='OK', command = create_porta).place(x=290,y=195)
+botao_port  = Button(text='OK', command = create_porta).place(x=320,y=195)
 
 
 # botoes que serão pressionados para ligar os LEDS (azul, verde, vermelho)
@@ -113,7 +113,6 @@ ico1 = ImageTk.PhotoImage(file="preto.jpg")
 botao1 = Button(text='Ligar Led Azul', command = lambda: comando(1))
 botao1.config(image=ico1, highlightthickness = 0, bd=0)
 botao1.place(x=110,y=90)
-
 
 texto2 = Label(text='Botão que liga led verde', fg = 'green',bg='white')
 texto2.place(x=220,y=70)
