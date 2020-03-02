@@ -1,0 +1,7 @@
+verdeON 013
+vermelhoON 014
+azulON 015
+
+verdeOFF 016
+vermelhoOFF 017
+azulOFF 018
