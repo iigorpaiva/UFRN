@@ -83,6 +83,20 @@ def comando(op):
         botao3.image = icone
         vermelho = False
 
+    elif (op == 4 and vermelho == False and azul == False and verde == False):
+        print('Liga Tudo')
+        sen_command('069')
+        vermelho = True
+        azul = True
+        verde = True
+
+    elif (op == 4 and vermelho == True and azul == True and verde == True):
+        print('Desliga Tudo')
+        sen_command('070')
+        vermelho = False
+        azul = False
+        verde = False
+
 ####################################### INTERFACE GRAFICA ##############################################################
 
 # da biblioteca Tk
@@ -93,7 +107,7 @@ janela.title('Controle de LED')
 
 # define o tamanho da janela 
 
-janela.geometry('650x300')
+janela.geometry('650x360')
 janela.configure(bg='white')
 
 # pede ao usuario para inserir a porta conectada com o arduino. Ex: com6 
@@ -132,6 +146,12 @@ botao3 = Button(text='Ligar Led Vermelho', command = lambda: comando(3))
 botao3.config(image=ico3, highlightthickness = 0, bd=0)
 botao3.place(x=460,y=90)
 
+texto4 = Label(text='Botão que liga tudo', fg = 'black',bg='white')
+texto4.place(x=240,y=260)
 
+ico4 = ImageTk.PhotoImage(file="preto.jpg")
+botao4 = Button(text='Ligar Tudo', command = lambda: comando(4))
+botao4.config(image=ico3, highlightthickness = 0, bd=0)
+botao4.place(x=270,y=290)
 
 janela.mainloop()

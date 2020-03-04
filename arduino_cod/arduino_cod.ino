@@ -18,6 +18,21 @@ void loop() {
     char aux = Serial.read();
     cod += aux;
   }
+
+  if(cod == "069"){
+    digitalWrite(R, HIGH);
+    digitalWrite(G, HIGH);
+    digitalWrite(B, HIGH);
+    cod = "";
+  }
+
+  if(cod == "070"){
+    digitalWrite(R, LOW);
+    digitalWrite(G, LOW);
+    digitalWrite(B, LOW);
+    cod = "";  
+  }
+
   if(cod == "013"){
     digitalWrite(G, HIGH);
     cod = "";
