@@ -1,6 +1,7 @@
 #define R 2
 #define G 3
 #define B 4
+#define T 5
 
 String cod;
 
@@ -9,9 +10,21 @@ void setup() {
   pinMode(R, OUTPUT);
   pinMode(G, OUTPUT);
   pinMode(B, OUTPUT);
+  pinMode(T, INPUT);
 }
 
 void loop() {
+/*
+  while(Serial.availableForWrite()){
+    delay(10);
+    int sw = digitalRead(T);
+    if(sw == HIGH){
+      Serial.write("L");
+    }
+    if(sw == LOW){
+      Serial.write("D");
+    }
+  }*/
   
   while(Serial.available()){
     delay(10);
@@ -57,5 +70,4 @@ void loop() {
     digitalWrite(B, LOW);
     cod = "";
   }
-  delay(15);
 }

@@ -20,21 +20,24 @@ vermelho = False
 def create_porta():
     global portaUSB
     aux = temp.get()
-    portaUSB = serial.Serial(aux, 9600)
-    
+    try:
+        portaUSB = serial.Serial(aux, 9600, timeout=1)
+        print('conexao estabelecida com o dispositivo')
+    except:
+        print('conexao nao estabelecida')
+
 # funcao recebe o codigo, converte de novo para string
 # escreve o codigo para dentro do arduino
 
 def sen_command(cod):
     aux = str(cod)
     portaUSB.write(aux.encode())
-    
 
 def comando(op):
     global azul
     global verde
     global vermelho    
-    
+
     if (op == 1 and azul == False):
         print("Led Azul Ligado")
         sen_command('015')
@@ -92,6 +95,7 @@ def comando(op):
 
     elif (op == 4 and vermelho == True and azul == True and verde == True):
         print('Desliga Tudo')
+        #print(incomingByte)
         sen_command('070')
         vermelho = False
         azul = False
