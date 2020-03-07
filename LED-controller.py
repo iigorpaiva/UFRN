@@ -26,8 +26,8 @@ def create_porta():
     try:
         while(1):
             portaUSB = serial.Serial(aux, 9600, timeout=1)
-            incomingByte = portaUSB.read()
-            print(incomingByte.decode('utf-8'))
+            incomingByte = portaUSB.read().decode('utf-8')
+            print(incomingByte)
             janela.update()
     except:
         print('conexao nao estabelecida')
@@ -39,7 +39,6 @@ def create_porta():
 def sen_command(cod):
     aux = str(cod)
     portaUSB.write(aux.encode())
-
 
 def comando(op):
     global azul
