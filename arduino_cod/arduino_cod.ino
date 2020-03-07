@@ -27,14 +27,14 @@ void loop() {
   
   // LEITURA DE CODIGOS VINDOS DO PYTHON
   
-  if(cod == "069" || sw == HIGH){
+  if(cod == "069"){
     digitalWrite(R, HIGH);
     digitalWrite(G, HIGH);
     digitalWrite(B, HIGH);
     cod = "";
   }
 
-  if(cod == "070" || sw == LOW){
+  if(cod == "070"){
     digitalWrite(R, LOW);
     digitalWrite(G, LOW);
     digitalWrite(B, LOW);
