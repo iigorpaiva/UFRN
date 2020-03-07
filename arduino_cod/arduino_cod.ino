@@ -14,24 +14,17 @@ void setup() {
 }
 
 void loop() {
-/*
-  while(Serial.availableForWrite()){
-    delay(10);
-    int sw = digitalRead(T);
-    if(sw == HIGH){
-      Serial.write("L");
-    }
-    if(sw == LOW){
-      Serial.write("D");
-    }
-  }*/
-  
-  while(Serial.available()){
-    delay(10);
+
+   int sw = digitalRead(T);
+   Serial.println(sw);
+   
+   if(Serial.available()){
     char aux = Serial.read();
     cod += aux;
-  }
-
+    }
+  
+  // LEITURA DE CODIGOS VINDOS DO PYTHON
+  
   if(cod == "069"){
     digitalWrite(R, HIGH);
     digitalWrite(G, HIGH);
@@ -54,7 +47,7 @@ void loop() {
     digitalWrite(G, LOW);
     cod = "";
   }
-   if(cod == "014"){
+  if(cod == "014"){
     digitalWrite(R, HIGH);
     cod = "";
   }
@@ -66,7 +59,7 @@ void loop() {
     digitalWrite(B, HIGH);
     cod = "";
   }
-   if(cod == "018"){
+  if(cod == "018"){
     digitalWrite(B, LOW);
     cod = "";
   }

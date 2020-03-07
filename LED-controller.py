@@ -26,6 +26,7 @@ def create_porta():
     except:
         print('conexao nao estabelecida')
 
+
 # funcao recebe o codigo, converte de novo para string
 # escreve o codigo para dentro do arduino
 
@@ -95,7 +96,6 @@ def comando(op):
 
     elif (op == 4 and vermelho == True and azul == True and verde == True):
         print('Desliga Tudo')
-        #print(incomingByte)
         sen_command('070')
         vermelho = False
         azul = False
@@ -159,3 +159,4 @@ botao4.config(image=ico3, highlightthickness = 0, bd=0)
 botao4.place(x=270,y=290)
 
 janela.mainloop()
+
