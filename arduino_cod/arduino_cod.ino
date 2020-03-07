@@ -16,23 +16,25 @@ void setup() {
 void loop() {
 
    int sw = digitalRead(T);
-   Serial.println(sw);
+   if(Serial.availableForWrite()){
+    Serial.println(sw);
+   }
    
    if(Serial.available()){
     char aux = Serial.read();
     cod += aux;
-    }
+   }
   
   // LEITURA DE CODIGOS VINDOS DO PYTHON
   
-  if(cod == "069"){
+  if(cod == "069" || sw == HIGH){
     digitalWrite(R, HIGH);
     digitalWrite(G, HIGH);
     digitalWrite(B, HIGH);
     cod = "";
   }
 
-  if(cod == "070"){
+  if(cod == "070" || sw == LOW){
     digitalWrite(R, LOW);
     digitalWrite(G, LOW);
     digitalWrite(B, LOW);
