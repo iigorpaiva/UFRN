@@ -19,7 +19,6 @@ global incomingByte
 # aux para pegar a porta digitada transformada em string
 # variavel recebe a porta que a gente passa, com 9600 velocidade padrao
 
-
 def create_porta():
     global portaUSB
     aux = temp.get()
@@ -27,7 +26,8 @@ def create_porta():
         while(1):
             portaUSB = serial.Serial(aux, 9600, timeout=1)
             incomingByte = portaUSB.read().decode('utf-8')
-            print(incomingByte)
+            if(incomingByte == '1'):
+                comando(4)
             janela.update()
     except:
         print('conexao nao estabelecida')
