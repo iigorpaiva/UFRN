@@ -18,6 +18,7 @@ void loop() {
    int sw = digitalRead(T);
    if(Serial.availableForWrite()){
     Serial.println(sw);
+    delay(100);
    }
    
    if(Serial.available()){
